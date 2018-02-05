@@ -1,0 +1,9 @@
+<div
+    data-bind="
+       html: $col.getLabel($row()),
+       attr: {
+                    class: $col.getLabel($row())>0 ? 'data-grid-cell-content positive' : 'data-grid-cell-content negative' 
+             }
+    ">
+    
+</div>

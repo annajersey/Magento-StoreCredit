@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            My Store Credit
+        </title>
+    </head>
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Exto\StoreCredit\Block\Transactions\History" template="Exto_StoreCredit::store_credit_history.phtml" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>

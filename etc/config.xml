@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (http://www.amasty.com)
+ * @package Amasty_HelloWorld
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Store/etc/config.xsd">
+    <default>
+        <exto_store_credit>
+            <general>
+                <points_ratio>0.01</points_ratio>
+                <shopping_cart_text><![CDATA[You can spend 
+<b>{available_balance}</b> from your store credit with this purchase]]></shopping_cart_text>
+            </general>
+        </exto_store_credit>
+    </default>
+</config>

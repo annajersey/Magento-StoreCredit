@@ -1,0 +1,16 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+    xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Exto_StoreCredit::css/exto-styles.css"/>
+    </head>
+    <body>
+        <referenceBlock name="customer_form">
+            <block class="Exto\StoreCredit\Block\Adminhtml\Edit\Customer\Tab\StoreCredit" name="edit_customer_tab_store_credit" template="customer/tab/view/storecredit.phtml">
+                <arguments>
+                <argument name="tab_label" xsi:type="string" translate="true">Store Credit</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        
+    </body>
+</page>

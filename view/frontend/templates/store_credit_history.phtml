@@ -1,0 +1,41 @@
+<?php
+?>
+<?php $transactions = $block->getTransactions(); ?>
+<?php //echo '<pre>'.print_r(count($transactions),1).'</pre>';die;?>
+<?php if ($transactions && count($transactions)): ?>
+    <h3>
+        <?php echo __('Your current points balance is') ?>
+        <strong><?php echo $block->formatPrice($block->getPointsBalance()) ?></strong>
+    </h3>
+    <hr />
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?php echo __('Transactions') ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col id"><?php echo __('Transaction #') ?></th>
+                    <th scope="col" class="col total"><?php echo __('Comment') ?></th>
+                    <th scope="col" class="col total"><?php echo __('Value') ?></th>
+                    <th scope="col" class="col date"><?php echo __('Date') ?></th>
+                    <?php /* <th scope="col" class="col shipping"><?php echo __('Order #') ?></th> */ ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($transactions as $transaction): ?>
+                    <tr>
+                        <td data-th="<?php echo $block->escapeHtml(__('Transaction #')) ?>" class="col id"><?php echo $transaction->getId() ?></td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Comment')) ?>" class="col total"><?php echo $transaction->getComment() ?></td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Value')) ?>" class="col total"><?php echo $block->formatPrice($transaction->getAmount()) ?></td>
+                        <td data-th="<?php echo $block->escapeHtml(__('Date')) ?>" class="col date"><?php echo $transaction->getActiondate() ?></td>
+                        <?php /* <td data-th="<?php echo $block->escapeHtml(__('Order #')) ?>" class="col shipping"><?php echo $block->getOrderRealId($transaction->getOrderId()) ?></td> */ ?>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have no points yet.'); ?></span></div>
+<?php endif ?>

@@ -1,0 +1,43 @@
+<!--
+-->
+<!-- ko -->
+<div class="checkout-payment-method">
+<div class="payment-option _collapsible opc-payment-additional" data-bind="mageInit: {'collapsible':{'openedState': '_active'}}" data-collapsible="true" role="tablist">
+    <div class="payment-option-title field choice store-credit-summary-title" data-role="title" role="tab" aria-selected="true" aria-expanded="true" tabindex="0">
+        <span class="action action-toggle" id="block-store-credit-heading" role="heading" aria-level="2">
+            <!-- ko i18n: 'Store Credit'--><!-- /ko -->
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content" role="tabpanel" aria-hidden="false" style="display: block;">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() -->
+<div data-role="checkout-messages" class="messages" data-bind="visible: isVisible(), click: removeAll">
+    <!-- ko foreach: messageContainer.getErrorMessages() --><!--/ko-->
+    <!-- ko foreach: messageContainer.getSuccessMessages() --><!--/ko-->
+</div><!-- /ko -->
+        <!--/ko-->
+        <form class="form form-store-credit" id="store-credit-form">
+            <div class="payment-option-inner store_credit">
+                <div class="field">
+                    <div class="control">
+                        <input class="input-text"
+                            type="text"
+                            id="store-credit-points"
+                            name="store_credit"
+                            data-validate="{'required-entry':true}"
+                            data-bind="value: getPoints()">
+                    </div>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button class="action action-apply" type="submit" data-bind="'value': $t('Apply Points'), click: apply">
+                        <span><!-- ko i18n: 'Apply Points'--><!-- /ko --></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<!-- /ko -->

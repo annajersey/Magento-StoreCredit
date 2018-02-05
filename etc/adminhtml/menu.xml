@@ -1,0 +1,39 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Exto_StoreCredit::exto_menu"
+             title="Exto"
+             module="Exto_StoreCredit"
+             sortOrder="40"
+             resource="Exto_StoreCredit::exto_store_credit_settings"
+        />
+        <add id="Exto_StoreCredit::storecredit_menu"
+             title="Store Credit"
+             module="Exto_StoreCredit" 
+             parent="Exto_StoreCredit::exto_menu"
+             sortOrder="10" 
+             resource="Magento_CatalogRule::promo"/>
+    
+        <add id="Exto_StoreCredit::storecredit_menu_transactions"
+             title="Transactions"
+             module="Exto_StoreCredit"
+             sortOrder="20"
+             resource="Exto_StoreCredit::exto_store_credit_transactions_view"
+ 
+             parent="Exto_StoreCredit::storecredit_menu"
+             action="exto_store_credit/transactions"
+        /> 
+        <add id="Exto_StoreCredit::storecredit_menu_settings"
+             title="Settings"
+             module="Magento_Config"
+             sortOrder="30"
+             resource="Exto_StoreCredit::exto_store_credit_settings"
+ 
+             parent="Exto_StoreCredit::storecredit_menu"
+             action="adminhtml/system_config/edit/section/exto_store_credit"
+        />   
+           
+         
+        
+    
+    </menu>
+</config>

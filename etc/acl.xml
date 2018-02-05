@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Exto_StoreCredit::exto_store_credit" title="Store Credit" sortOrder="10" >
+                        <resource id="Exto_StoreCredit::exto_store_credit_transactions" title="Store Credit Balance" sortOrder="40">
+                            <resource id="Exto_StoreCredit::exto_store_credit_balance_change" title="Change Balance" sortOrder="10" />
+                            <resource id="Exto_StoreCredit::exto_store_credit_transactions_view" title="View transactions" sortOrder="15" />
+                            <resource id="Exto_StoreCredit::exto_store_credit_settings" title="StoreCredit Settings" sortOrder="20" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

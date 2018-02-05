@@ -1,0 +1,49 @@
+<script type="text/javascript">
+   require(['jquery','mage/mage','transactionsjs'],
+    function($,mage,colorclass) {  
+        colorclass.init();
+        var balanceForm = $('#update-balance-form');
+        balanceForm.mage('validation');
+        
+        $('#transaction_update_balance').on('click',  function(){ 
+            //console.log(balanceForm.validate());
+            if(balanceForm.valid()){
+                $.ajax({
+                    url: '<?php echo $block->getFormAction(); ?>',
+                    data: {
+                        form_key: window.FORM_KEY,
+                        transaction:
+                        {
+                            amount: $('#transaction_balance').val(),
+                            comment: $('#transaction_comment').val(),
+                            customer_id: '<?php echo $block->getCustomerId(); ?>'
+                        }
+                    },
+                    type: 'POST',
+                    showLoader: true
+                }).done(function(a) { 
+                    $('.exto-message').remove();
+                    if(a.success===true){
+                        balanceForm.prepend('<div class="message message-success exto-message">\n\
+                            <?php echo $block->getSuccessMessage(); ?></div>');
+                        transactionGridJsObject.resetFilter();
+                        
+                    }else{
+                        balanceForm.prepend('<div class="message message-error exto-message">\n\
+                            <?php echo $block->getErrorMessage(); ?></div>');
+                        console.log(a);
+                    }
+                });
+              
+            }
+        });
+        
+        
+        
+       
+    }
+);
+
+</script>
+
+

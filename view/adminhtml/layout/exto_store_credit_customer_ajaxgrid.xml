@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <referenceContainer name="root">
+        <block after="exto.store.credit.customer.tab.balance.form" class="Magento\Backend\Block\Widget\Grid" name="exto.store.credit.customer.tab.transactions.grid">
+            <arguments>
+                <argument name="dataSource" xsi:type="object">Exto\StoreCredit\Model\ResourceModel\Points\Collection\CustomerTransactionsGrid</argument>
+                <argument name="id" xsi:type="string">transactionGrid</argument>
+                <argument name="use_ajax" xsi:type="string">true</argument>
+                <argument name="default_sort" xsi:type="string">transaction_id</argument>
+                <argument name="default_dir" xsi:type="string">DESC</argument>
+                <argument name="grid_url" xsi:type="url" path="*/customer/balancegrid">
+                    <param name="_current">1</param>
+                </argument>
+            </arguments>
+            <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="customer.transaction.edit.tab.columnSet">
+                <block class="Magento\Backend\Block\Widget\Grid\Column" as="transaction_id">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Transaction Id</argument>
+                        <argument name="id" xsi:type="string">transaction_id</argument>
+                        <argument name="index" xsi:type="string">transaction_id</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" as="amount">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Value</argument>
+                        <argument name="id" xsi:type="string">amount</argument>
+                        <argument name="index" xsi:type="string">amount</argument>
+                        <argument name="type" xsi:type="string">number</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" as="comment">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Comment</argument>
+                        <argument name="id" xsi:type="string">comment</argument>
+                        <argument name="index" xsi:type="string">comment</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" as="actiondate">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Date</argument>
+                        <argument name="id" xsi:type="string">actiondate</argument>
+                        <argument name="index" xsi:type="string">actiondate</argument>
+                        <argument name="type" xsi:type="string">date</argument>
+                    </arguments>
+                </block>
+            </block>
+        </block>
+    </referenceContainer>
+</layout>
+
